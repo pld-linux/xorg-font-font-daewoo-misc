@@ -1,21 +1,22 @@
 Summary:	daewoo-misc font
 Summary(pl):	Font daewoo-misc
 Name:		xorg-font-font-daewoo-misc
-Version:	0.99.0
-Release:	0.01
+Version:	0.99.1
+Release:	0.1
 License:	MIT
 Group:		Fonts
-Source0:	http://xorg.freedesktop.org/X11R7.0-RC0/font/font-daewoo-misc-%{version}.tar.bz2
-# Source0-md5:	5980c9f827a3484044c18d1f526d1bd4
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/font/font-daewoo-misc-%{version}.tar.bz2
+# Source0-md5:	b7763794b0c90ad6f8a240ee90a9a17c
 URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
-BuildRequires:	xorg-font-font-util
 BuildRequires:	xorg-util-util-macros
+Requires(post,postun):	fontpostinst
+Requires:	%{_fontsdir}/misc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,7 +32,8 @@ Font daewoo-misc.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--with-fontdir=%{_fontsdir}/misc
 
 %{__make}
 
@@ -44,6 +46,13 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+fontpostinst misc
+
+%postun
+fontpostinst misc
+
 %files
 %defattr(644,root,root,755)
-%{_libdir}/X11/fonts/misc/*
+%doc COPYING ChangeLog
+%{_fontsdir}/misc/*.pcf.gz
