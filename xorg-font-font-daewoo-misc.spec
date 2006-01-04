@@ -1,16 +1,15 @@
 Summary:	daewoo-misc font
 Summary(pl):	Font daewoo-misc
 Name:		xorg-font-font-daewoo-misc
-Version:	0.99.1
+Version:	1.0.0
 Release:	0.1
 License:	MIT
 Group:		Fonts
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/font/font-daewoo-misc-%{version}.tar.bz2
-# Source0-md5:	b7763794b0c90ad6f8a240ee90a9a17c
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/font/font-daewoo-misc-%{version}.tar.bz2
+# Source0-md5:	61f9eab48c619af5494d3e384d8d7d79
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
-BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
