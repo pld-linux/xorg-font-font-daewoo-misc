@@ -1,5 +1,5 @@
 Summary:	daewoo-misc font
-Summary(pl.UTF-8):   Font daewoo-misc
+Summary(pl.UTF-8):	Font daewoo-misc
 Name:		xorg-font-font-daewoo-misc
 Version:	1.0.0
 Release:	0.1
