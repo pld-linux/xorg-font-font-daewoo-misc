@@ -1,11 +1,11 @@
-Summary:	daewoo-misc font
-Summary(pl.UTF-8):	Font daewoo-misc
+Summary:	Daewoo bitmap fonts
+Summary(pl.UTF-8):	Fonty bitmapowe Daewoo
 Name:		xorg-font-font-daewoo-misc
 Version:	1.0.0
-Release:	0.1
+Release:	1
 License:	MIT
 Group:		Fonts
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/font/font-daewoo-misc-%{version}.tar.bz2
+Source0:	http://xorg.freedesktop.org/releases/individual/font/font-daewoo-misc-%{version}.tar.bz2
 # Source0-md5:	61f9eab48c619af5494d3e384d8d7d79
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
@@ -19,10 +19,10 @@ Requires:	%{_fontsdir}/misc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-daewoo-misc font.
+Daewoo bitmap fonts: Gothic and Mincho.
 
 %description -l pl.UTF-8
-Font daewoo-misc.
+Fonty bitmapowe Daewoo: Gothic i Mincho.
 
 %prep
 %setup -q -n font-daewoo-misc-%{version}
@@ -54,4 +54,4 @@ fontpostinst misc
 %files
 %defattr(644,root,root,755)
 %doc COPYING ChangeLog
-%{_fontsdir}/misc/*.pcf.gz
+%{_fontsdir}/misc/hangl*.pcf.gz
