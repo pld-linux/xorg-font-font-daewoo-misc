@@ -1,12 +1,12 @@
 Summary:	Daewoo bitmap fonts
 Summary(pl.UTF-8):	Fonty bitmapowe Daewoo
 Name:		xorg-font-font-daewoo-misc
-Version:	1.0.0
-Release:	2
+Version:	1.0.1
+Release:	1
 License:	MIT
 Group:		Fonts
 Source0:	http://xorg.freedesktop.org/releases/individual/font/font-daewoo-misc-%{version}.tar.bz2
-# Source0-md5:	61f9eab48c619af5494d3e384d8d7d79
+# Source0-md5:	05597e2b193a7b7de2ca525468276b1d
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -33,6 +33,8 @@ Fonty bitmapowe Daewoo: Gothic i Mincho.
 %{__autoconf}
 %{__automake}
 %configure \
+	--build=%{_host_platform} \
+	--host=%{_host_platform} \
 	--with-fontdir=%{_fontsdir}/misc
 
 %{__make}
