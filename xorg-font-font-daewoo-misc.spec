@@ -1,20 +1,22 @@
 Summary:	Daewoo bitmap fonts
 Summary(pl.UTF-8):	Fonty bitmapowe Daewoo
 Name:		xorg-font-font-daewoo-misc
-Version:	1.0.3
-Release:	2
+Version:	1.0.4
+Release:	1
 License:	MIT
 Group:		Fonts
-Source0:	http://xorg.freedesktop.org/releases/individual/font/font-daewoo-misc-%{version}.tar.bz2
-# Source0-md5:	0571bf77f8fab465a5454569d9989506
-URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf >= 2.57
+Source0:	https://xorg.freedesktop.org/releases/individual/font/font-daewoo-misc-%{version}.tar.xz
+# Source0-md5:	6300bc99a1e45fbbe6075b3de728c27f
+URL:		https://xorg.freedesktop.org/
+BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
-BuildRequires:	xorg-font-font-util >= 1.2
-BuildRequires:	xorg-util-util-macros >= 1.3
+BuildRequires:	xorg-font-font-util >= 1.4
+BuildRequires:	xorg-util-util-macros >= 1.20
+BuildRequires:	xz
 Requires(post,postun):	fontpostinst
 Requires:	%{_fontsdir}/misc
 BuildArch:	noarch
@@ -34,8 +36,10 @@ Fonty bitmapowe Daewoo: Gothic i Mincho.
 %{__autoconf}
 %{__automake}
 %configure \
+%if "%{_gnu}" != "-gnux32"
 	--build=%{_host} \
 	--host=%{_host} \
+%endif
 	--with-fontdir=%{_fontsdir}/misc
 
 %{__make}
@@ -57,5 +61,5 @@ fontpostinst misc
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog README
+%doc COPYING ChangeLog README.md
 %{_fontsdir}/misc/hangl*.pcf.gz
